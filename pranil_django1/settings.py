@@ -25,9 +25,13 @@ SECRET_KEY = 'django-insecure-pznc^%c!ps34)^%59yabrk(42(*_o8f&_35j1-%b9e1vs508ce
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.8','192.168.1.9']
+#ALLOWED_HOSTS = ['192.168.1.8','192.168.1.9']
 
-
+ALLOWED_HOSTS = [
+    "pranil-django1.onrender.com",
+    "tradeonlevel1.com",
+    "www.tradeonlevel1.com",
+]
 
 
 
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
