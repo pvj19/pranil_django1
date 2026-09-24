@@ -34,7 +34,8 @@ ALLOWED_HOSTS = [
 ]
 
 
-
+# secret key hhtTTtGn7c0VdRqdYWYJdFOLZkQIKMRzqrR-w3rwuaXwceM8yCiQ5SP_0jzuZ__vMUQ
+# value aa1b21be5d8f74d2ac47f4bd7e7049ef
 # Application definition
 
 INSTALLED_APPS = [
