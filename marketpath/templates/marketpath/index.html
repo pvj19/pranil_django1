@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Marketpath: trading courses and Excel analysis tools</title>
+<meta name="description" content="Learn how the market moves, manage risk, and use Excel tools for option chain, FII and DII data and stock scanning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'marketpath/css/style.css' %}">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Marketpath home">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <img src="{% static 'marketpath/images/logo.jpg' %}"width="30" height="30">
+      </svg>
+      Trade On Level
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a class="link" href="#approach">Approach</a>
+      <a class="link" href="#calculators">calculators</a>
+      <a class="link" href="#tools">Excel tools</a>
+      <a class="link" href="#courses">Courses</a>
+      <a class="link" href="#reviews">Reviews</a>
+      <a class="btn btn-green btn-sm" href="#contact">Talk to us</a>
+      <a class="btn btn-green btn-sm" href="http://ydtwlg.on-app.in/app/home/app/home?orgCode=ydtwlg">Dowload App</a>
+    </nav>
+    <a class="btn btn-green btn-sm" id="mobile-cta" href="#contact" style="display:none">Talk to us</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title">Find your own path in the market.</h1>
+        <p class="lede">Courses that teach how prices move, Excel tools that do the daily number-crunching, and a real person to call when something doesn&rsquo;t work.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#contact">Want to know more?</a>
+          <a class="btn btn-line" href="#tools">See the Excel tools</a>
+        </div>
+        <p class="fine">New to trading or years in, start from where you are.</p>
+      </div>
+      <figure class="chart-fig">
+        <svg id="hero-chart" viewBox="0 0 600 440" role="img" aria-label="Illustration of a rising price line with resistance, pivot and support levels"></svg>
+        <figcaption>Illustration only. Not real market data.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="approach" aria-labelledby="approach-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="approach-title">Four ideas behind everything we teach</h2>
+        <p>Every trader is different. These principles stay the same whichever style you end up choosing.</p>
+      </div>
+      <div class="ideas">
+        <div class="idea">
+          <h3>Invest with your values</h3>
+          <p>Choose companies that match your ethics, so your money supports the kind of society you want to live in.</p>
+        </div>
+        <div class="idea">
+          <h3>Build wealth for the long run</h3>
+          <p>Work towards financial freedom and a secure, peaceful future, one sensible step at a time.</p>
+        </div>
+        <div class="idea">
+          <h3>Invest with discipline</h3>
+          <p>Follow written rules for entries, exits and holding periods instead of tips, moods and hunches.</p>
+        </div>
+        <div class="idea">
+          <h3>Manage risk first</h3>
+          <p>Decide what you can afford to lose before you place a trade, then size the position to match.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="section" id="calculators" aria-labelledby="calculators-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="calculators-title">The rest of the toolkit</h2>
+        <p>Each calculator answers one question. They all run in your browser, so you can use them mid-session without signing in.</p>
+      </div>
+      <div class="calc-bench">
+        <div class="calc-tabs" role="tablist" aria-label="Calculators" id="calc-tabs"></div>
+        <div class="calc-panel" id="calc-panel" role="tabpanel" tabindex="0"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="section tools" id="tools" aria-labelledby="tools-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="tools-title">Excel tools for the daily work</h2>
+        <p>Spreadsheets that pull the data together and show it in one place, so your time goes into decisions rather than collecting numbers.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Excel tools" id="tabs"></div>
+      <p class="sheet-desc" id="sheet-desc"></p>
+      <div class="xl" id="xl-window" role="tabpanel" tabindex="0"></div>
+      <div class="facts">
+        <div class="fact">
+          <h3>Free updates for life</h3>
+          <p>When a sheet is improved, you get the new version at no extra charge.</p>
+        </div>
+        <div class="fact">
+          <h3>Setup help by phone</h3>
+          <p>Stuck on installing or connecting data? We&rsquo;ll walk you through it on a call.</p>
+        </div>
+        <div class="fact">
+          <h3>Built in Excel</h3>
+          <p>If you already use Excel there is no new software to learn, and you can adjust the sheets to suit you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <section class="section" id="courses" aria-labelledby="courses-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="courses-title">All courses</h2>
+        <p>Excel tools and video courses you can buy directly. Each one opens the course page to check out.</p>
+      </div>
+
+      <div class="course-carousel-wrap">
+        <button class="nav prev" type="button" aria-label="Previous course" data-dir="-1" data-target="course-carousel">&#10094;</button>
+
+        <div class="course-carousel" id="course-carousel">
+          {% for course in courses %}
+          <a class="course-card" href="{{ course.url }}" target="_blank" rel="noopener">
+            <img src="{% static course.image %}" alt="" loading="lazy" width="540" height="300">
+            <div class="course-card-body">
+              <div class="course-tags">
+                {% for tag in course.tags %}<span>{{ tag }}</span>{% endfor %}
+              </div>
+              <h3>{{ course.title }}</h3>
+              <hr>
+              <div class="course-price">
+                <span class="new-price">{{ course.price_new }}</span>
+                {% if course.price_old %}<span class="old-price">{{ course.price_old }}</span>{% endif %}
+                {% if course.discount %}<span class="discount">{{ course.discount }}</span>{% endif %}
+              </div>
+              <span class="buy-btn">Get this course</span>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+
+        <button class="nav next" type="button" aria-label="Next course" data-dir="1" data-target="course-carousel">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+<section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="reviews-title">What students and users say</h2>
+        <p>Real feedback from traders and investors who use our courses and tools.</p>
+      </div>
+
+      <div class="carousel-section">
+        <div class="carousel-wrapper">
+          <button class="nav prev" type="button" aria-label="Previous review" data-dir="-1">&#10094;</button>
+
+          <div id="carousel1" class="carousel-track">
+            {% for review in reviews %}
+            <div class="carousel-card">
+              <div class="quote">&#10078;</div>
+              <div class="learner-text">
+                {% for para in review.paragraphs %}
+                <p>{{ para }}</p>
+                {% endfor %}
+              </div>
+              <div class="user">
+                <img src="{% static review.image %}" alt="" width="44" height="44">
+                <h4>{{ review.name }}</h4>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          <button class="nav next" type="button" aria-label="Next review" data-dir="1">&#10095;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact">
+      <div>
+        <div class="section-head" style="margin-bottom:0">
+          <h2 id="contact-title">Want to know more?</h2>
+          <p>Tell us where you are in your trading, and we&rsquo;ll suggest the right course or tool. We&rsquo;ll reply by phone or email.</p>
+        </div>
+        {% comment %} <dl class="contact-list">
+          <div><dt>Phone</dt><dd>+91 90000 00000</dd></div>
+          <div><dt>Email</dt><dd>hello@marketpath.example</dd></div>
+        </dl> {% endcomment %}
+      </div>
+
+      <form class="form-card" id="contact-form" method="post" novalidate>
+        {% csrf_token %}
+        <div class="field-row">
+          <label class="field">Your name
+            {{ form.name }}
+          </label>
+          <label class="field">Phone number
+            {{ form.phone }}
+          </label>
+        </div>
+        <label class="field">I&rsquo;m interested in
+          {{ form.interest }}
+        </label>
+        <label class="field">Message (optional)
+          {{ form.message }}
+        </label>
+        <button class="btn btn-green" type="submit">Send enquiry</button>
+
+        {% if form.errors %}
+          <p class="form-msg err" role="status">
+            {% for field in form %}{% for error in field.errors %}{{ error }} {% endfor %}{% endfor %}
+            {% for error in form.non_field_errors %}{{ error }} {% endfor %}
+          </p>
+        {% elif messages %}
+          {% for message in messages %}
+            <p class="form-msg ok" role="status">{{ message }}</p>
+          {% endfor %}
+        {% else %}
+          <p class="form-msg" id="form-msg" role="status"></p>
+        {% endif %}
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="brand" href="#top" aria-label="Marketpath home">Trade On Level</a>
+    <div>
+      <p>Trade On Level provides education and analysis tools only. Nothing on this page is investment advice or a recommendation to buy or sell any security. Investments in the securities market are subject to market risk, and you can lose money. Read all related documents carefully before investing.</p>
+      <p>Tables shown on this page use sample numbers for illustration.</p>
+       {% comment %} &copy; 2026 Marketpath. {% endcomment %}
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.MARKETPATH_REVIEWS = [
+    {% for review in reviews %}
+    { q: {{ review.quote|escapejs }}, n: {{ review.name|escapejs }} }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+</script>
+<script src="{% static 'marketpath/js/main.js' %}"></script>
+</body>
+</html>
