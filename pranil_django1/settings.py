@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pznc^%c!ps34)^%59yabrk(42(*_o8f&_35j1-%b9e1vs508ce'
+# SECRET_KEY = 'django-insecure-pznc^%c!ps34)^%59yabrk(42(*_o8f&_35j1-%b9e1vs508ce'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-for-local-dev')
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 #ALLOWED_HOSTS = ['192.168.1.8','192.168.1.9']
 
@@ -35,7 +38,7 @@ ALLOWED_HOSTS = [
 
 
 # secret key hhtTTtGn7c0VdRqdYWYJdFOLZkQIKMRzqrR-w3rwuaXwceM8yCiQ5SP_0jzuZ__vMUQ
-# value aa1b21be5d8f74d2ac47f4bd7e7049ef
+# value 6df3c802a1d33f4d742f1ff525db2802
 # Application definition
 
 INSTALLED_APPS = [
@@ -124,8 +127,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
 
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
@@ -137,11 +142,27 @@ MAILERS = {
             "host": "smtp.gmail.com",
             "port": 587,
             "use_tls": True,
-            "username": "freefireidpvj@gmail.com",
-            "password": "tjss qkgp xldj fnpf",
+            "username": os.environ.get("EMAIL_HOST_USER", ""),
+            "password": os.environ.get("EMAIL_HOST_PASSWORD", ""),
         },
     },
 }
 
-DEFAULT_FROM_EMAIL = "freefireidpvj@gmail.com"
-ENQUIRY_NOTIFY_EMAIL = "freefireidpvj@gmail.com"
+DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER", "")
+ENQUIRY_NOTIFY_EMAIL = os.environ.get("EMAIL_HOST_USER", "")
+
+# MAILERS = {
+#     "default": {
+#         "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+#         "OPTIONS": {
+#             "host": "smtp.gmail.com",
+#             "port": 587,
+#             "use_tls": True,
+#             "username": "freefireidpvj@gmail.com",
+#             "password": "tjss qkgp xldj fnpf",
+#         },
+#     },
+# }
+
+# DEFAULT_FROM_EMAIL = "freefireidpvj@gmail.com"
+# ENQUIRY_NOTIFY_EMAIL = "freefireidpvj@gmail.com"
