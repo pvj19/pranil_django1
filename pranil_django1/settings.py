@@ -140,14 +140,14 @@ MAILERS = {
         "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
         "OPTIONS": {
             "host": "smtp.gmail.com",
-            "port": 587,
+            "port": 465,
             "use_tls": True,
             "username": os.environ.get("EMAIL_HOST_USER", ""),
             "password": os.environ.get("EMAIL_HOST_PASSWORD", ""),
         },
     },
 }
-EMAIL_TIMEOUT = 10
+
 #odss kcob xtnn qypw
 DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com")
 ENQUIRY_NOTIFY_EMAIL = os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com")
