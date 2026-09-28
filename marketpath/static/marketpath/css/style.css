@@ -440,3 +440,20 @@ a.see-all-link:hover { text-decoration: underline; }
 .courses-grid .course-card hr { margin-top: auto; }
 .no-results { padding: 40px 0 80px; color: var(--muted); }
 .no-results[hidden] { display: none; }
+
+
+
+/* Mobile header: keep every nav button in the row and fit them */
+@media (max-width: 760px) {
+  .bar { gap: 8px; height: 60px; }
+  .brand { font-size: 18px; gap: 8px; min-width: 0; }
+  .brand svg { width: 26px; height: 26px; }
+  .site-nav { gap: 6px; margin-left: auto; flex: none; }
+  .site-nav a.link { display: none; }
+  .site-nav .btn { display: inline-flex !important; height: 36px; padding: 0 10px; font-size: 13px; }
+  #mobile-cta { display: none !important; }
+}
+@media (max-width: 360px) {
+  .brand { font-size: 16px; }
+  .site-nav .btn { padding: 0 8px; font-size: 12px; }
+}
