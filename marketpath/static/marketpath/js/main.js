@@ -432,7 +432,22 @@
   })();
 })();
 
-
+  /* ---------- See all courses toggle ---------- */
+  (function () {
+    var btn = $('#see-all-btn');
+    var wrap = $('.course-carousel-wrap');
+    var track = $('#course-carousel');
+    if (!btn || !wrap || !track) return;
+    btn.addEventListener('click', function () {
+      var open = wrap.classList.toggle('expanded');
+      btn.textContent = open ? 'Show less' : 'See all courses';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (!open) {
+        track.scrollLeft = 0;
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  })();
 
 
 

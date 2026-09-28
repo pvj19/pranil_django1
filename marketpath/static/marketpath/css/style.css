@@ -402,3 +402,16 @@
   .course-carousel-wrap .nav { display: none; }
   .course-card { flex-basis: 78vw; }
 }
+
+
+/* See all courses: carousel turns into a grid */
+.see-all-row { margin-top: 24px; text-align: center; }
+.course-carousel-wrap.expanded .nav { display: none; }
+.course-carousel-wrap.expanded .course-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  overflow: visible;
+  scroll-snap-type: none;
+  width: 100%;
+}
