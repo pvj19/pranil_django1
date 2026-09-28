@@ -5,6 +5,31 @@ from django.shortcuts import redirect, render
 
 from .forms import EnquiryForm
 
+# Courses that appear ONLY on the See All page (not in the home carousel).
+# To move one into the carousel later, cut it from here and paste it into COURSES.
+MORE_COURSES = [
+    {
+        "url": "https://www.tradeonlevel.com/courses/452771",
+        "image": "marketpath/images/onlylivetickdatathumbnail.jpg",
+        "tags": ["FREE CONTENT", "VIDEOS"],
+        "title": "Only live tick data Excel (No trading functions) & Save Every...",
+        "price_new": "\u20b9 5,000",
+        "price_old": "\u20b9 6,000",
+        "discount": "16% OFF",
+    },
+    {
+        "url": "PASTE_COURSE_LINK_HERE",
+        "image": "marketpath/images/PASTE_IMAGE_FILENAME.jpg",
+        "tags": ["VIDEOS"],
+        "title": "PASTE COURSE TITLE HERE",
+        "price_new": "\u20b9 0,000",
+        "price_old": "",
+        "discount": "",
+    },
+]
+
+
+
 # Course tools and reviews are static content for now. Move these to
 # models (e.g. a Course / Review model) once you want to edit them
 # without a deploy.
@@ -166,4 +191,4 @@ def index(request):
 
 
 def courses_page(request):
-    return render(request, "marketpath/courses.html", {"courses": COURSES})
+    return render(request, "marketpath/courses.html", {"courses": COURSES + MORE_COURSES})
