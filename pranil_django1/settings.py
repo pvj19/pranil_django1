@@ -142,14 +142,14 @@ MAILERS = {
             "host": "smtp.gmail.com",
             "port": 587,
             "use_tls": True,
-            "username": os.environ.get("EMAIL_HOST_USER", ""),
-            "password": os.environ.get("EMAIL_HOST_PASSWORD", ""),
+            "username": os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com"),
+            "password": os.environ.get("EMAIL_HOST_PASSWORD", "odss kcob xtnn qypw"),
         },
     },
 }
 
-DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER", "")
-ENQUIRY_NOTIFY_EMAIL = os.environ.get("EMAIL_HOST_USER", "")
+DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com")
+ENQUIRY_NOTIFY_EMAIL = os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com")
 
 # MAILERS = {
 #     "default": {
