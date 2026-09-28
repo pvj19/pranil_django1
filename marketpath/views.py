@@ -5,6 +5,27 @@ from django.shortcuts import redirect, render
 
 from .forms import EnquiryForm
 
+import socket
+from django.http import HttpResponse
+
+def test_smtp_connection(request):
+    try:
+        socket.setdefaulttimeout(10)
+
+        sock = socket.create_connection(
+            ("smtp.gmail.com", 587),
+            timeout=10
+        )
+
+        sock.close()
+
+        return HttpResponse("SMTP port 587 is reachable")
+
+    except Exception as e:
+        return HttpResponse(
+            f"SMTP connection failed: {type(e).__name__}: {e}"
+        )
+
 # Courses that appear ONLY on the See All page (not in the home carousel).
 # To move one into the carousel later, cut it from here and paste it into COURSES.
 MORE_COURSES = [
