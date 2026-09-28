@@ -225,7 +225,7 @@ def index(request):
                 ),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[settings.ENQUIRY_NOTIFY_EMAIL],
-                fail_silently=False,
+                fail_silently=True,
             )
 
             messages.success(

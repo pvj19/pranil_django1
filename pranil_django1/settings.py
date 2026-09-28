@@ -147,6 +147,7 @@ MAILERS = {
         },
     },
 }
+EMAIL_TIMEOUT = 10
 #odss kcob xtnn qypw
 DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com")
 ENQUIRY_NOTIFY_EMAIL = os.environ.get("EMAIL_HOST_USER", "freefireidpvj@gmail.com")
