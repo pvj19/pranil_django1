@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>All courses | Marketpath</title>
+<meta name="description" content="Browse every Excel tool and learning course.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@400;500;600&family=Literata:opsz,wght@7..72,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'marketpath/css/style.css' %}">
+</head>
+<body>
+
+<header class="courses-bar">
+  <div class="wrap bar">
+    <a class="back-link" href="{% url 'marketpath:index' %}#courses" aria-label="Back to home page">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+    <div class="course-search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="course-search" type="search" placeholder="Search for courses" aria-label="Search for courses" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 class="page-title">All courses</h1>
+  <p class="search-status" id="search-status" aria-live="polite"></p>
+
+  <div class="courses-grid">
+    {% for course in courses %}
+    <a class="course-card" href="{{ course.url }}" target="_blank" rel="noopener"
+       data-search="{{ course.title|lower }} {% for tag in course.tags %}{{ tag|lower }} {% endfor %}">
+      <img src="{% static course.image %}" alt="" loading="lazy">
+      <div class="course-card-body">
+        <div class="course-tags">
+          {% for tag in course.tags %}<span>{{ tag }}</span>{% endfor %}
+        </div>
+        <h3>{{ course.title }}</h3>
+        <hr>
+        <div class="course-price">
+          <span class="new-price">{{ course.price_new }}</span>
+          {% if course.price_old %}<span class="old-price">{{ course.price_old }}</span>{% endif %}
+          {% if course.discount %}<span class="discount">{{ course.discount }}</span>{% endif %}
+        </div>
+        <span class="buy-btn">Get this course</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <p class="no-results" id="no-results" hidden>No courses match your search.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p style="font-size:14.5px;color:var(--muted);max-width:72ch">Marketpath provides education and analysis tools only. Nothing on this page is investment advice or a recommendation to buy or sell any security. Investments in the securities market are subject to market risk, and you can lose money.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var input = document.getElementById('course-search');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.courses-grid .course-card'));
+  var none = document.getElementById('no-results');
+  var status = document.getElementById('search-status');
+  function run() {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (c) {
+      var hit = !q || c.getAttribute('data-search').indexOf(q) !== -1;
+      c.hidden = !hit;
+      if (hit) shown++;
+    });
+    none.hidden = shown !== 0;
+    status.textContent = q ? shown + ' of ' + cards.length + ' courses' : '';
+  }
+  input.addEventListener('input', run);
+})();
+</script>
+</body>
+</html>

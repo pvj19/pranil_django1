@@ -6,4 +6,5 @@ app_name = "marketpath"
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("courses/", views.courses_page, name="courses"),
 ]

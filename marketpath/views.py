@@ -162,3 +162,8 @@ def index(request):
         "reviews": REVIEWS,
     }
     return render(request, "marketpath/index.html", context)
+
+
+
+def courses_page(request):
+    return render(request, "marketpath/courses.html", {"courses": COURSES})
