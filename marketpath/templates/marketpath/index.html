@@ -129,11 +129,19 @@
     </div>
   </section>
 
-    <section class="section" id="courses" aria-labelledby="courses-title">
+  <section class="section" id="courses" aria-labelledby="courses-title">
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="courses-title">Readymade Excel Tools and Learning Courses</h2>
-        <p>Readymade Excel tools and Learning courses you can buy directly. Click on below cards to open the Products you are interested to see more details.</p>
+
+      <div class="courses-head">
+        <div class="section-head">
+          <h2 id="courses-title">Readymade Excel Tools and Learning Courses</h2>
+          <p>Readymade Excel tools and Learning courses you can buy directly. Click on below cards to open the Products you are interested in to see more details.</p>
+        </div>
+
+        <button class="see-all-link" type="button" id="see-all-btn" aria-expanded="false" aria-controls="course-carousel">
+          <span class="see-all-text">See All</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+        </button>
       </div>
 
       <div class="course-carousel-wrap">
@@ -142,7 +150,7 @@
         <div class="course-carousel" id="course-carousel">
           {% for course in courses %}
           <a class="course-card" href="{{ course.url }}" target="_blank" rel="noopener">
-            <img src="{% static course.image %}" alt="" loading="lazy" width="540" height="300">
+            <img src="{% static course.image %}" alt="" loading="lazy">
             <div class="course-card-body">
               <div class="course-tags">
                 {% for tag in course.tags %}<span>{{ tag }}</span>{% endfor %}
@@ -162,9 +170,7 @@
 
         <button class="nav next" type="button" aria-label="Next course" data-dir="1" data-target="course-carousel">&#10095;</button>
       </div>
-        <div class="see-all-row">
-        <button class="btn btn-green" type="button" id="see-all-btn" aria-expanded="false" aria-controls="course-carousel">See all courses</button>
-      </div>
+
     </div>
   </section>
 
