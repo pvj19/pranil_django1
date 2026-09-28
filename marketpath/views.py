@@ -40,7 +40,7 @@ MORE_COURSES = [
         "image": "marketpath/images/algothumbnail.jpg",
         "tags": ["VIDEOS"],
         "title": "Intraday option trading Algo excel for strategy based option trading.",
-        "price_new": "\u20b9 11,000",
+        "price_new": "\u20b9 8,000",
         "price_old": "",
         "discount": "",
     },
@@ -169,7 +169,7 @@ COURSES = [
         "title": "Only live tick data Excel (No trading functions) & Save Every...",
         "price_new": "\u20b9 5,000",
         "price_old": "\u20b9 6,000",
-        "discount": "16% OFF",
+        "discount": "28% OFF",
     },
 ]
 
