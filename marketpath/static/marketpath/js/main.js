@@ -434,3 +434,47 @@
 
 
 
+
+
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("id_name").value.trim();
+    const phone = document.getElementById("id_phone").value.trim();
+    const interest = document.getElementById("id_interest").value;
+    const message = document.getElementById("id_message").value.trim();
+
+    // Validate name
+    if (!name) {
+        alert("Please enter your name.");
+        return;
+    }
+
+    // Validate phone
+    const digits = phone.replace(/\D/g, "");
+
+    if (digits.length < 10) {
+        alert("Please enter a valid phone number.");
+        return;
+    }
+
+    // Your WhatsApp number
+    const whatsappNumber = "916355866012";
+
+    const whatsappMessage =
+        "📩 *New Enquiry*\n\n" +
+        "👤 *Name:* " + name + "\n" +
+        "📱 *Phone:* " + phone + "\n" +
+        "📚 *Interested in:* " + interest + "\n" +
+        "💬 *Message:* " + (message || "No message");
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(whatsappMessage);
+
+    window.open(whatsappURL, "_blank");
+});
