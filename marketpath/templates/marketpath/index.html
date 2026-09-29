@@ -209,51 +209,49 @@
   </section>
 
   <section class="section" id="contact" aria-labelledby="contact-title">
+
+
   <div class="wrap contact">
-    <div>
-      <div class="section-head" style="margin-bottom:0">
+    
+    <div class="contact-content">
+      <div class="section-head" style="margin-bottom: 0;">
         <h2 id="contact-title">Have any Query?</h2>
-        <p>Tell us your requirements, and we&rsquo;ll suggest the right course or tool best for you. We&rsquo;ll reply by whatsapp or email.</p>
+        <p>
+          Tell us your requirements, and we&rsquo;ll suggest the right course
+          or tool best for you.
+        </p>
       </div>
 
-      <div class="contact-quick-links" style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
-        <a class="btn btn-green" href="https://www.tradeonlevel.com/contact-us" target="_blank" rel="noopener">Contact Us1</a>
-        <a class="btn btn-green" href="https://wa.me/916355866012" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <div class="contact-quick-links">
+        
+        <a class="contact-btn contact-btn-primary"
+           href="https://www.tradeonlevel.com/contact-us"
+           target="_blank"
+           rel="noopener">
+          <span class="contact-btn-icon">✉</span>
+          <span>
+            <strong>Contact Us</strong>
+            <small>Send us your query</small>
+          </span>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+
+        <a class="contact-btn contact-btn-whatsapp"
+           href="https://wa.me/916355866012"
+           target="_blank"
+           rel="noopener">
+          <span class="contact-btn-icon">☏</span>
+          <span>
+            <strong>Chat on WhatsApp</strong>
+            <small>Get a quick response</small>
+          </span>
+          <span class="contact-btn-arrow">→</span>
+        </a>
+
       </div>
     </div>
 
-      <form class="form-card" id="contact-form" method="post" novalidate>
-        {% csrf_token %}
-        <div class="field-row">
-          <label class="field">Your name
-            {{ form.name }}
-          </label>
-          <label class="field">Phone number
-            {{ form.phone }}
-          </label>
-        </div>
-        <label class="field">I&rsquo;m interested in
-          {{ form.interest }}
-        </label>
-        <label class="field">Message (optional)
-          {{ form.message }}
-        </label>
-        <button class="btn btn-green" type="submit">Send enquiry</button>
-        {% comment %} whatsapp link "https://wa.me/919898343029"{% endcomment %}
-        {% if form.errors %}
-          <p class="form-msg err" role="status">
-            {% for field in form %}{% for error in field.errors %}{{ error }} {% endfor %}{% endfor %}
-            {% for error in form.non_field_errors %}{{ error }} {% endfor %}
-          </p>
-        {% elif messages %}
-          {% for message in messages %}
-            <p class="form-msg ok" role="status">{{ message }}</p>
-          {% endfor %}
-        {% else %}
-          <p class="form-msg" id="form-msg" role="status"></p>
-        {% endif %}
-      </form>
-    </div>
+  </div>
   </section>
 </main>
 
