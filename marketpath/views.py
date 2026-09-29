@@ -1,10 +1,40 @@
+import requests
+
 from django.conf import settings
 from django.contrib import messages
-from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 
 from .forms import EnquiryForm
 
+
+def send_enquiry_email(enquiry):
+    """Send the enquiry notification over HTTPS via Resend.
+
+    Render's free plan blocks outbound SMTP (ports 25/465/587), so we
+    can't use Django's send_mail() with an SMTP backend here. Resend's
+    API runs over port 443, which is not blocked.
+    """
+    try:
+        requests.post(
+            "https://api.resend.com/emails",
+            headers={"Authorization": f"Bearer {settings.RESEND_API_KEY}"},
+            json={
+                "from": settings.DEFAULT_FROM_EMAIL,
+                "to": [settings.ENQUIRY_NOTIFY_EMAIL],
+                "subject": f"New enquiry: {enquiry.name} ({enquiry.get_interest_display()})",
+                "text": (
+                    f"Name: {enquiry.name}\n"
+                    f"Phone: {enquiry.phone}\n"
+                    f"Interested in: {enquiry.get_interest_display()}\n"
+                    f"Message: {enquiry.message or '(none)'}\n"
+                ),
+            },
+            timeout=10,
+        )
+    except requests.RequestException:
+        # Don't let an email failure break the enquiry flow; the
+        # enquiry is already saved to the database regardless.
+        pass
 
 
 # Courses that appear ONLY on the See All page (not in the home carousel).
@@ -217,18 +247,7 @@ def index(request):
         if form.is_valid():
             enquiry = form.save()
 
-            send_mail(
-                subject=f"New enquiry: {enquiry.name} ({enquiry.get_interest_display()})",
-                message=(
-                    f"Name: {enquiry.name}\n"
-                    f"Phone: {enquiry.phone}\n"
-                    f"Interested in: {enquiry.get_interest_display()}\n"
-                    f"Message: {enquiry.message or '(none)'}\n"
-                ),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.ENQUIRY_NOTIFY_EMAIL],
-                fail_silently=True,
-            )
+            send_enquiry_email(enquiry)
 
             messages.success(
                 request,

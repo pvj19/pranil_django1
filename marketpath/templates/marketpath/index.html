@@ -209,17 +209,18 @@
   </section>
 
   <section class="section" id="contact" aria-labelledby="contact-title">
-    <div class="wrap contact">
-      <div>
-        <div class="section-head" style="margin-bottom:0">
-          <h2 id="contact-title">Have any Query?</h2>
-          <p>Tell us your requirements, and we&rsquo;ll suggest the right course or tool best for you. We&rsquo;ll reply by whatsapp or email.</p>
-        </div>
-        {% comment %} <dl class="contact-list">
-          <div><dt>Phone</dt><dd>+91 90000 00000</dd></div>
-          <div><dt>Email</dt><dd>hello@marketpath.example</dd></div>
-        </dl> {% endcomment %}
+  <div class="wrap contact">
+    <div>
+      <div class="section-head" style="margin-bottom:0">
+        <h2 id="contact-title">Have any Query?</h2>
+        <p>Tell us your requirements, and we&rsquo;ll suggest the right course or tool best for you. We&rsquo;ll reply by whatsapp or email.</p>
       </div>
+
+      <div class="contact-quick-links" style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
+        <a class="btn btn-green" href="https://www.tradeonlevel.com/contact-us" target="_blank" rel="noopener">Contact Us</a>
+        <a class="btn btn-line" href="https://wa.me/919898343029" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
 
       <form class="form-card" id="contact-form" method="post" novalidate>
         {% csrf_token %}
