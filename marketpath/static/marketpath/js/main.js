@@ -429,8 +429,7 @@
     });
     renderCalcTabs();
     renderCalcPanel();
-        renderCalcTabs();
-    renderCalcPanel();
+
 
     var collapseBtn = $('#calc-collapse-btn');
     var collapseLabel = collapseBtn ? $('span', collapseBtn) : null;
