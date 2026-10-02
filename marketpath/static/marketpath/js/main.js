@@ -455,17 +455,45 @@
     
   })();
   
-/* Approach cards: click heading to open/close its text */
+
+/* Approach cards: click heading to open/close, mobile only */
 document.addEventListener('DOMContentLoaded', function () {
-  Array.prototype.forEach.call(document.querySelectorAll('.idea-toggle'), function (btn) {
-    btn.addEventListener('click', function () {
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      btn.parentElement.querySelector('.idea-body').hidden = open;
+  var mqMobile = window.matchMedia('(max-width: 760px)');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#approach .idea'));
+
+  function closeAll() {
+    cards.forEach(function (card) {
+      card.classList.remove('is-open');
+      card.querySelector('.idea-toggle').setAttribute('aria-expanded', 'false');
+    });
+  }
+  function openAll() {
+    cards.forEach(function (card) {
+      card.classList.add('is-open');
+      card.querySelector('.idea-toggle').setAttribute('aria-expanded', 'true');
+    });
+  }
+  function sync() {
+    if (mqMobile.matches) closeAll(); else openAll();
+  }
+
+  cards.forEach(function (card) {
+    card.querySelector('.idea-toggle').addEventListener('click', function () {
+      if (!mqMobile.matches) return;
+      card.classList.toggle('is-open');
+      var open = card.classList.contains('is-open');
+      this.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
+
+  sync();
+  if (mqMobile.addEventListener) mqMobile.addEventListener('change', sync);
 });
+
+
+
+
+
+
+
 })();
-
-
-
