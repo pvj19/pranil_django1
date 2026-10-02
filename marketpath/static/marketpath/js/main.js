@@ -452,7 +452,19 @@
       if (mqMobile.addEventListener) mqMobile.addEventListener('change', syncToScreenSize);
     }
 
+    
   })();
+  
+/* Approach cards: click heading to open/close its text */
+document.addEventListener('DOMContentLoaded', function () {
+  Array.prototype.forEach.call(document.querySelectorAll('.idea-toggle'), function (btn) {
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      btn.parentElement.querySelector('.idea-body').hidden = open;
+    });
+  });
+});
 })();
 
 

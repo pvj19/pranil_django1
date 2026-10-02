@@ -581,3 +581,24 @@ a.see-all-link:hover { text-decoration: underline; }
   .calc-panel { margin-top: 10px; }
   .calc-panel[hidden] { display: none; }
 }
+
+
+
+/* Approach cards: heading opens/closes its paragraph */
+.idea-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.idea-toggle h3 { margin: 0; }
+.idea-toggle svg { flex: none; color: var(--muted); transition: transform 0.2s ease; }
+.idea-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.idea-body { margin-top: 10px; }
+.idea-body[hidden] { display: none; }
