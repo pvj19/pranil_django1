@@ -46,7 +46,7 @@
 
   var SHEETS = [
     {
-      id: 'oc', tab: 'Option chain', img: 'static/marketpath/images/multioc10.jpg',
+      id: 'oc', tab: 'Option chain', img: 'marketpath/images/multioc10.jpg',
       desc: 'See where open interest is building across strikes, and which side is adding or unwinding, for Nifty and Bank Nifty.'
     },
     {
