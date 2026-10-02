@@ -429,6 +429,29 @@
     });
     renderCalcTabs();
     renderCalcPanel();
+        renderCalcTabs();
+    renderCalcPanel();
+
+    var collapseBtn = $('#calc-collapse-btn');
+    var collapseLabel = collapseBtn ? $('span', collapseBtn) : null;
+    var mqMobile = window.matchMedia('(max-width: 980px)');
+    function setCollapsed(collapsed) {
+      if (!collapseBtn) return;
+      calcPanel.hidden = collapsed;
+      collapseBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      collapseLabel.textContent = collapsed ? 'Show calculator' : 'Hide calculator';
+    }
+    function syncToScreenSize() {
+      setCollapsed(mqMobile.matches);
+    }
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', function () {
+        setCollapsed(!calcPanel.hidden);
+      });
+      syncToScreenSize();
+      if (mqMobile.addEventListener) mqMobile.addEventListener('change', syncToScreenSize);
+    }
+
   })();
 })();
 
