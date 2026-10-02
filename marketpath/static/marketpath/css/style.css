@@ -155,7 +155,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
   .xl-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: #1E6B45; color: #FFFFFF; font: 600 14px var(--display); }
   .xl-title .badge { font: 600 12px var(--display); padding: 2px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.2); }
