@@ -44,82 +44,27 @@
     $('#hero-chart').innerHTML = s;
   })();
 
-  /* ---------- Excel tool previews (sample numbers) ---------- */
-  var num = function (t, cls) { return { t: t, cls: cls || '' }; };
-  var pos = function (t) { return { t: t, cls: 'up' }; };
-  var neg = function (t) { return { t: t, cls: 'down' }; };
-  var txt = function (t, cls) { return { t: t, cls: 'l ' + (cls || '') }; };
-  var bar = function (t, w, kind) { return { t: t, cls: kind, w: w }; };
-
   var SHEETS = [
     {
-      id: 'oc', tab: 'Option chain', file: 'option-chain.xlsx',
-      desc: 'See where open interest is building across strikes, and which side is adding or unwinding, for Nifty and Bank Nifty.',
-      cols: ['Call OI (lakh)', 'Call change', 'Strike', 'Put change', 'Put OI (lakh)'],
-      rows: [
-        { cells: [bar('38.4', '51%', 'bar-dn'), pos('+2.1'), num('22,000', 'strong'), neg('\u22121.4'), bar('21.7', '29%', 'bar-up')] },
-        { cells: [bar('44.9', '60%', 'bar-dn'), pos('+3.6'), num('22,050', 'strong'), neg('\u22120.8'), bar('27.3', '36%', 'bar-up')] },
-        { cells: [bar('52.3', '70%', 'bar-dn'), pos('+5.2'), num('22,100', 'strong'), pos('+0.9'), bar('33.8', '45%', 'bar-up')] },
-        { hl: true, cells: [bar('61.7', '82%', 'bar-dn'), pos('+1.8'), num('22,150', 'strong'), pos('+2.4'), bar('45.6', '61%', 'bar-up')] },
-        { cells: [bar('71.2', '95%', 'bar-dn'), neg('\u22122.3'), num('22,200', 'strong'), pos('+6.1'), bar('58.9', '79%', 'bar-up')] },
-        { cells: [bar('49.6', '66%', 'bar-dn'), neg('\u22124.1'), num('22,250', 'strong'), pos('+8.4'), bar('66.2', '88%', 'bar-up')] },
-        { cells: [bar('35.8', '48%', 'bar-dn'), neg('\u22123.0'), num('22,300', 'strong'), pos('+7.7'), bar('72.5', '97%', 'bar-up')] }
-      ]
+      id: 'oc', tab: 'Option chain', img: 'marketpath/images/option-chain.png',
+      desc: 'See where open interest is building across strikes, and which side is adding or unwinding, for Nifty and Bank Nifty.'
     },
     {
-      id: 'fd', tab: 'FII and DII data', file: 'fii-dii-data.xlsx',
-      desc: 'Track daily buying and selling by foreign and domestic institutions, with net figures worked out for you (\u20b9 crore).',
-      cols: ['Session', 'FII buy', 'FII sell', 'FII net', 'DII net'],
-      rows: [
-        { cells: [txt('Day 1'), num('12,480'), num('13,215'), neg('\u2212735'), pos('+1,120')] },
-        { cells: [txt('Day 2'), num('14,020'), num('12,860'), pos('+1,160'), pos('+410')] },
-        { cells: [txt('Day 3'), num('11,930'), num('13,480'), neg('\u22121,550'), pos('+1,890')] },
-        { cells: [txt('Day 4'), num('12,750'), num('12,610'), pos('+140'), pos('+260')] },
-        { cells: [txt('Day 5'), num('13,310'), num('14,120'), neg('\u2212810'), pos('+970')] },
-        { cells: [txt('Day 6'), num('12,090'), num('11,730'), pos('+360'), neg('\u2212220')] }
-      ]
+      id: 'fd', tab: 'FII and DII data', img: 'marketpath/images/fii-dii-data.png',
+      desc: 'Track daily buying and selling by foreign and domestic institutions, with net figures worked out for you.'
     },
     {
-      id: 'sc', tab: 'Stock scanner', file: 'stock-scanner.xlsx',
-      desc: 'Filter a list of stocks by price move, volume and level breaks, so you only open the charts worth looking at.',
-      cols: ['Symbol', 'Last price', 'Change', 'Volume vs avg', 'Signal'],
-      rows: [
-        { cells: [txt('Alpha Ltd'), num('1,284.50'), pos('+2.4%'), num('2.1\u00d7'), txt('Breakout', 'up strong')] },
-        { cells: [txt('Bravo Ltd'), num('642.10'), pos('+1.1%'), num('1.6\u00d7'), txt('Near resistance')] },
-        { cells: [txt('Charlie Ltd'), num('2,910.00'), neg('\u22120.8%'), num('0.9\u00d7'), txt('No signal')] },
-        { cells: [txt('Delta Ltd'), num('388.75'), pos('+3.2%'), num('3.4\u00d7'), txt('Breakout', 'up strong')] },
-        { cells: [txt('Echo Ltd'), num('1,015.30'), neg('\u22122.1%'), num('1.8\u00d7'), txt('Breakdown', 'down strong')] },
-        { cells: [txt('Foxtrot Ltd'), num('176.40'), pos('+0.4%'), num('1.2\u00d7'), txt('Near support')] }
-      ]
+      id: 'sc', tab: 'Stock scanner', img: 'marketpath/images/stock-scanner.png',
+      desc: 'Filter a list of stocks by price move, volume and level breaks, so you only open the charts worth looking at.'
     },
     {
-      id: 'eod', tab: 'End-of-day analysis', file: 'stock-eod-analysis.xlsx',
-      desc: 'A calm end-of-day review: where each stock closed inside its recent range, and which way its trend is leaning.',
-      cols: ['Symbol', 'Close', '20-day high', '20-day low', 'Place in range', 'Trend'],
-      rows: [
-        { cells: [txt('Alpha Ltd'), num('1,284.50'), num('1,290.00'), num('1,120.40'), bar('97%', '97%', 'bar-up'), txt('Up', 'up strong')] },
-        { cells: [txt('Bravo Ltd'), num('642.10'), num('668.90'), num('590.25'), bar('66%', '66%', 'bar-up'), txt('Up', 'up strong')] },
-        { cells: [txt('Charlie Ltd'), num('2,910.00'), num('3,105.00'), num('2,880.50'), bar('13%', '13%', 'bar-dn'), txt('Down', 'down strong')] },
-        { cells: [txt('Delta Ltd'), num('388.75'), num('392.10'), num('331.00'), bar('95%', '95%', 'bar-up'), txt('Up', 'up strong')] },
-        { cells: [txt('Echo Ltd'), num('1,015.30'), num('1,180.00'), num('1,008.60'), bar('4%', '4%', 'bar-dn'), txt('Down', 'down strong')] },
-        { cells: [txt('Foxtrot Ltd'), num('176.40'), num('184.75'), num('168.20'), bar('50%', '50%', 'bar-up'), txt('Sideways')] }
-      ]
+      id: 'eod', tab: 'End-of-day analysis', img: 'marketpath/images/stock-eod-analysis.png',
+      desc: 'A calm end-of-day review: where each stock closed inside its recent range, and which way its trend is leaning.'
     }
   ];
 
-  var LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
-  function cellHtml(c) {
-    var style = c.w ? ' style="--w:' + c.w + '"' : '';
-    return '<td class="' + c.cls + '"' + style + '>' + c.t + '</td>';
-  }
   function sheetHtml(s) {
-    var h = '<div class="xl-title"><span>' + s.file + '</span><span class="badge">Sample data</span></div><div class="xl-scroll"><table class="xl-t"><thead>';
-    h += '<tr class="letters"><th></th>' + s.cols.map(function (_, i) { return '<th>' + LETTERS[i] + '</th>'; }).join('') + '</tr>';
-    h += '<tr class="heads"><th class="rn">1</th>' + s.cols.map(function (c, i) { return '<th class="' + (i === 0 && (s.id === 'fd' || s.id === 'sc' || s.id === 'eod') ? 'l' : '') + '">' + c + '</th>'; }).join('') + '</tr></thead><tbody>';
-    s.rows.forEach(function (r, ri) {
-      h += '<tr' + (r.hl ? ' class="hl"' : '') + '><th class="rn">' + (ri + 2) + '</th>' + r.cells.map(cellHtml).join('') + '</tr>';
-    });
-    return h + '</tbody></table></div>';
+    return '<img class="xl-screenshot" src="/static/' + s.img + '" alt="' + s.tab + ' screenshot" loading="lazy">';
   }
 
   var tabsEl = $('#tabs'), win = $('#xl-window'), descEl = $('#sheet-desc');
