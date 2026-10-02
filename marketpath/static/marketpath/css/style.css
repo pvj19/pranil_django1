@@ -1,3 +1,4 @@
+
 :root {
     --bg: #F4F7F5;
     --surface: #FFFFFF;
@@ -140,7 +141,22 @@
   .tab:hover { color: var(--ink); }
   .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--green); }
   .sheet-desc { margin: 20px 0 20px; max-width: 64ch; color: var(--muted); min-height: 3.3em; }
-  .xl { border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: var(--surface); }
+  .xl {
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--mist);
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.xl-screenshot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
   .xl-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: #1E6B45; color: #FFFFFF; font: 600 14px var(--display); }
   .xl-title .badge { font: 600 12px var(--display); padding: 2px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.2); }
   .xl-scroll { overflow-x: auto; }
