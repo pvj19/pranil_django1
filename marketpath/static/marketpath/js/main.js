@@ -46,20 +46,20 @@
 
   var SHEETS = [
     {
-      id: 'oc', tab: 'Option chain', img: 'marketpath/images/multioc10.jpg',
-      desc: 'See where open interest is building across strikes, and which side is adding or unwinding, for Nifty and Bank Nifty.'
+      id: 'oc', tab: 'Option chain', img: 'marketpath/images/multioc3.jpg',
+      desc: 'See where open interest is building across strikes, and which side is adding or unwinding, for any Symbol (Index or Stocks)'
     },
     {
-      id: 'fd', tab: 'FII and DII data', img: 'marketpath/images/multipledematthumbnail.jpg',
+      id: 'fd', tab: 'FII and DII data', img: 'marketpath/images/FIIDIIsheet.jpg',
       desc: 'Track daily buying and selling by foreign and domestic institutions, with net figures worked out for you.'
     },
     {
-      id: 'sc', tab: 'Stock scanner', img: 'marketpath/images/onlylivetickdatathumbnail.jpg',
+      id: 'sc', tab: 'Stock scanner', img: 'marketpath/images/stockscanner1.jpg',
       desc: 'Filter a list of stocks by price move, volume and level breaks, so you only open the charts worth looking at.'
     },
     {
-      id: 'eod', tab: 'End-of-day analysis', img: 'marketpath/images/livetickdatawithtrade.jpg',
-      desc: 'A calm end-of-day review: where each stock closed inside its recent range, and which way its trend is leaning.'
+      id: 'eod', tab: 'End-of-day analysis', img: 'marketpath/images/stockcourse1.jpg',
+      desc: 'A calm end-of-day analysis where each stock End of day data can be tracked and checked in details.'
     }
   ];
 
