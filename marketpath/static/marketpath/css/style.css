@@ -144,18 +144,25 @@
   .xl {
   border: 1px solid var(--line-strong);
   border-radius: 8px;
-  overflow: hidden;
   background: var(--mist);
   height: 520px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .xl-screenshot {
   display: block;
-  width: 100%;
+  max-width: none;
   height: 100%;
-  object-fit: fill;
+  width: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (max-width: 760px) {
+  .xl { height: 260px; }
 }
   .xl-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: #1E6B45; color: #FFFFFF; font: 600 14px var(--display); }
   .xl-title .badge { font: 600 12px var(--display); padding: 2px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.2); }

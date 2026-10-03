@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     "tradeonlevel1.com",
     "www.tradeonlevel1.com",
 ]
-
+CSRF_TRUSTED_ORIGINS = ["pranil-django1.onrender.com","https://tradeonlevel1.com", "https://www.tradeonlevel1.com"]
 
 # secret key hhtTTtGn7c0VdRqdYWYJdFOLZkQIKMRzqrR-w3rwuaXwceM8yCiQ5SP_0jzuZ__vMUQ
 # value 6df3c802a1d33f4d742f1ff525db2802
