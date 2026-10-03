@@ -145,19 +145,12 @@
   border: 1px solid var(--line-strong);
   border-radius: 8px;
   background: var(--mist);
-  height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
-.xl-screenshot {
+  .xl-screenshot {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
+  width: 100%;
   height: auto;
-  object-fit: fill;
   image-rendering: -webkit-optimize-contrast;
 }
 
