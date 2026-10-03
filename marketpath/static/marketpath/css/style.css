@@ -145,6 +145,7 @@
   border: 1px solid var(--line-strong);
   border-radius: 8px;
   background: var(--mist);
+  height: 500px;
 }
 .xl-screenshot {
   display: block;
