@@ -145,9 +145,10 @@
   border: 1px solid var(--line-strong);
   border-radius: 8px;
   background: var(--mist);
-  overflow: hidden;
+  max-height: 560px;
+  overflow-y: auto;
 }
-  .xl-screenshot {
+.xl-screenshot {
   display: block;
   width: 100%;
   height: auto;
