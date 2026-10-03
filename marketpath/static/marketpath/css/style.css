@@ -148,21 +148,31 @@
   height: 520px;
   display: flex;
   align-items: center;
-  overflow-x: auto;
-  overflow-y: hidden;
+  justify-content: center;
+  overflow: hidden;
 }
-.xl-screenshot  {
+.xl-screenshot {
   display: block;
-  max-width: none;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
-  margin: 0 auto;
+  height: auto;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
 }
 
 @media (max-width: 760px) {
-  .xl { height: 260px; }
+  .xl {
+    height: 260px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .xl-screenshot {
+    max-width: none;
+    height: 100%;
+    width: auto;
+  }
 }
   .xl-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; background: #1E6B45; color: #FFFFFF; font: 600 14px var(--display); }
   .xl-title .badge { font: 600 12px var(--display); padding: 2px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.2); }
