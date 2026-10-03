@@ -151,7 +151,7 @@
   overflow-x: auto;
   overflow-y: hidden;
 }
-.xl-screenshot {
+.xl-screenshot  {
   display: block;
   max-width: none;
   height: 100%;
