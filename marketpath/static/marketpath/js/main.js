@@ -119,10 +119,54 @@
     wireCarousel('course-carousel', '.course-card', 22);
   })();
 
-  /* ---------- Testimonial carousel (kept separate: buttons have no data-target) ---------- */
+    /* ---------- Testimonial carousel: endless scroll ----------
+     The review cards are tripled at runtime (original + two clones),
+     and the view silently snaps back to the middle copy whenever you
+     scroll near either edge, so the carousel never runs out of cards
+     in either direction. */
   (function () {
     var track = $('#carousel1');
     if (!track) return;
+
+    var originalCards = Array.prototype.slice.call(track.children);
+    if (originalCards.length === 0) return;
+
+    originalCards.forEach(function (card) { track.appendChild(card.cloneNode(true)); });
+    originalCards.forEach(function (card) { track.appendChild(card.cloneNode(true)); });
+
+    var setWidth = 0;
+    function measure() { setWidth = track.scrollWidth / 3; }
+    measure();
+    track.scrollLeft = setWidth;
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var ratio = track.scrollLeft / (setWidth || 1);
+        measure();
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = setWidth * ratio;
+        track.style.scrollBehavior = '';
+      }, 150);
+    });
+
+    var scrollTimer;
+    track.addEventListener('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () {
+        if (track.scrollLeft < setWidth * 0.5) {
+          track.style.scrollBehavior = 'auto';
+          track.scrollLeft += setWidth;
+          track.style.scrollBehavior = '';
+        } else if (track.scrollLeft > setWidth * 1.5) {
+          track.style.scrollBehavior = 'auto';
+          track.scrollLeft -= setWidth;
+          track.style.scrollBehavior = '';
+        }
+      }, 120);
+    });
+
     $$('.nav', track.closest('.carousel-wrapper')).forEach(function (btn) {
       if (btn.hasAttribute('data-target')) return;
       btn.addEventListener('click', function () {
